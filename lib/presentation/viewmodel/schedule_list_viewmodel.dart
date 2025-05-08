@@ -15,6 +15,16 @@ class ScheduleListViewModel extends StateNotifier<List<Schedule>> {
   void fetchSchedules() {
     state = _dataSource.getSchedule();
   }
+
+  void toggleCompleted(int id){
+    state = [
+      for (final schedule in state)
+        if (schedule.id == id)
+          schedule.copyWith(isCompleted: !schedule.isCompleted)
+        else
+          schedule
+    ];
+  }
 }
 
 //provider
