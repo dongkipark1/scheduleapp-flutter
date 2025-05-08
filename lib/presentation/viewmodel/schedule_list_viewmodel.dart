@@ -18,7 +18,7 @@ class ScheduleListViewModel extends StateNotifier<List<Schedule>> {
 }
 
 //provider
-final ScheduleListViewModelProvider = StateNotifierProvider<ScheduleListViewModel, List<Schedule>> (
+final scheduleListViewModelProvider = StateNotifierProvider<ScheduleListViewModel, List<Schedule>> (
     (ref) => ScheduleListViewModel(FakeScheduleDataSource()),
 );
 
