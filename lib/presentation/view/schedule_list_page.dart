@@ -20,7 +20,13 @@ class ScheduleListPage extends ConsumerWidget {
             subtitle: Text(schedule.description),
             trailing: Icon(schedule.isCompleted ?
             Icons.check_circle :
-            Icons.circle_outlined),
+            Icons.circle_outlined
+            ),
+            onTap: () {
+              ref
+              .read(scheduleListViewModelProvider.notifier)
+                  .toggleCompleted(schedule.id);
+            },
           );
         },
       ),
