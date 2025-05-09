@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:schedulesapp/presentation/view/schedule_detail_page.dart';
+import 'package:schedulesapp/presentation/view/schedule_form_page.dart';
 import 'package:schedulesapp/presentation/viewmodel/schedule_list_viewmodel.dart';
 
 class ScheduleListPage extends ConsumerWidget {
@@ -26,11 +27,22 @@ class ScheduleListPage extends ConsumerWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ScheduleDetailPage(schedule: schedule)),
+                MaterialPageRoute(
+                    builder:
+                        (context) => ScheduleDetailPage(schedule: schedule)),
               );
             },
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute
+                  (builder: (_) => const ScheduleFormPage()),
+            );
+          }
       ),
     );
   }

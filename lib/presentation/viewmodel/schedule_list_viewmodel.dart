@@ -25,6 +25,24 @@ class ScheduleListViewModel extends StateNotifier<List<Schedule>> {
           schedule
     ];
   }
+
+  void addSchedule({
+    required String title,
+    required String description,
+    required DateTime dueDate,
+    required bool isCompleted,
+}) {
+    final newId = state.isEmpty ? 1 : state.map((s) => s.id).reduce((a, b) => a > b ? a : b) + 1;
+    final newSchedule = Schedule(
+        id: newId,
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        createdAt: DateTime.now(),
+    isCompleted: isCompleted,
+    );
+    state = [...state, newSchedule];
+  }
 }
 
 //provider
