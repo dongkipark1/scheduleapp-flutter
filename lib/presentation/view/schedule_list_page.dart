@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:schedulesapp/presentation/view/schedule_detail_page.dart';
 import 'package:schedulesapp/presentation/viewmodel/schedule_list_viewmodel.dart';
 
 class ScheduleListPage extends ConsumerWidget {
@@ -23,9 +24,10 @@ class ScheduleListPage extends ConsumerWidget {
             Icons.circle_outlined
             ),
             onTap: () {
-              ref
-              .read(scheduleListViewModelProvider.notifier)
-                  .toggleCompleted(schedule.id);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ScheduleDetailPage(schedule: schedule)),
+              );
             },
           );
         },
